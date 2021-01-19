@@ -6,21 +6,26 @@ using UnityEngine.UI;
 public class TrunbasedProtoype : MonoBehaviour
 {
     public int diceRoll;
-    public int maxDiceRoll = 10;
-    public int turnorder;
+    public int maxDiceRoll = 11;
+    public int firstTurnOrder;
+    public int turnOrder;
 
     public Text diceRollText;
+
+    public string player;
 
     public List<GameObject> players;
     void Start()
     {
         new List<GameObject>(players);
+        diceRoll = Random.Range(1, maxDiceRoll);
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.LeftAlt))
         {
+            PlayerTurnOrder();
             DiceRoller();
         }
     }
@@ -30,28 +35,47 @@ public class TrunbasedProtoype : MonoBehaviour
     {
         diceRoll = Random.Range(1, maxDiceRoll);
         diceRollText.text = diceRoll.ToString();
-        Debug.Log(diceRoll);
-        PlayerTurnOrder();
     }
 
     public void PlayerTurnOrder()
     {
-        switch (turnorder)
+        Debug.Log(diceRoll);
+
+        switch (diceRoll)
         {
             case 1:
-                if(diceRoll == Random.Range(1, 5))
-                {
-                    print("Playerone starts");
-                }
-                break;
             case 2:
-                if (diceRoll == Random.Range(6, 10))
-                {
-                    print("Playertwo starts");
-                }
+            case 3:
+            case 4:
+            case 5:
+                print("PlayerOne");
+                break;
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+                print("PlayerTwo");
                 break;
             default:
-                print("Playerone Starts");
+                break;
+        }
+    }
+
+    public void TurnSystem()
+    {
+        switch (turnOrder)
+        {
+            case 1:
+                PlayerTurnOrder();
+                break;
+            case 2:
+                //ActionTurn
+                break;
+            case 3:
+                //MiniGameTurn
+                break;
+            default:
                 break;
         }
     }
