@@ -8,14 +8,14 @@ public class SCP_1 : MonoBehaviour
 
     public ScriptablePrototype spawnManagerValues;
 
-    public List<GameObject> orderMarkers;
+    public List<GameObject> playersInGame;
 
     int instanceNumber;
     void Start()
     {
-        new List<GameObject>(orderMarkers);
 
         SpawnEntities();
+
     }
 
     void SpawnEntities()

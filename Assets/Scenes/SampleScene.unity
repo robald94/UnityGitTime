@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 156293934}
   - component: {fileID: 156293935}
   - component: {fileID: 156293936}
+  - component: {fileID: 156293937}
   m_Layer: 0
   m_Name: MasterObject
   m_TagString: Untagged
@@ -165,15 +166,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 049349ac3f554014aa841d653729920b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diceRoll: 0
-  maxDiceRoll: 10
+  P1diceRoll: 0
+  P2diceRoll: 0
   firstTurnOrder: 0
-  turnOrder: 0
   diceRollText: {fileID: 2091875394}
   player: 
   players:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7889934902157890923, guid: 9796fb4268781b24cafef00a8f248eeb, type: 3}
+  - {fileID: 3126515214103191774, guid: 37bb307ef3dcbec43a7907296393befc, type: 3}
 --- !u!114 &156293936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,9 +189,25 @@ MonoBehaviour:
   entityToSpawn: {fileID: 7889934902157890923, guid: 9796fb4268781b24cafef00a8f248eeb,
     type: 3}
   spawnManagerValues: {fileID: 11400000, guid: d20aeca650879d64a8596e8770d92e5b, type: 2}
-  orderMarkers:
-  - {fileID: 1638191449}
-  - {fileID: 556804136}
+  playersInGame:
+  - {fileID: 7889934902157890923, guid: 9796fb4268781b24cafef00a8f248eeb, type: 3}
+  - {fileID: 3126515214103191774, guid: 37bb307ef3dcbec43a7907296393befc, type: 3}
+--- !u!114 &156293937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156293933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb16f346bcce8d4ea300fb9b5ffc2a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  P1rollsallowed: 1
+  P2rollsallowed: 0
+  P1turn: 1
+  P2turn: 0
 --- !u!1 &251529581
 GameObject:
   m_ObjectHideFlags: 0

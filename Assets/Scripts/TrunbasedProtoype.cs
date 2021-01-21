@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class TrunbasedProtoype : MonoBehaviour
 {
-    public int diceRoll;
-    public int maxDiceRoll = 11;
+    public int P1diceRoll;
+    public int P2diceRoll;
+    private int maxDiceRoll = 10;
     public int firstTurnOrder;
-    public int turnOrder;
+    private int diceRoll;
 
     public Text diceRollText;
 
@@ -18,65 +19,68 @@ public class TrunbasedProtoype : MonoBehaviour
     void Start()
     {
         new List<GameObject>(players);
-        diceRoll = Random.Range(1, maxDiceRoll);
     }
 
     void Update()
     {
+        //Rull terning for å velge hvem som starter første runde
+        //TODO: Rull terning for å bestemme hvor mange tiles spiller beveger seg
         if (Input.GetKeyDown(KeyCode.LeftAlt))
+            {
+                PlayerTurnOrder();
+                P1DiceRoller();
+            }
+        if (Input.GetKeyDown(KeyCode.RightAlt))
         {
-            PlayerTurnOrder();
-            DiceRoller();
+            P2DiceRoller();
         }
+        PlayerTurnOrder();
     }
 
-
-    public void DiceRoller()
+    public void P1DiceRoller()
     {
-        diceRoll = Random.Range(1, maxDiceRoll);
-        diceRollText.text = diceRoll.ToString();
+        P1diceRoll = Random.Range(1, maxDiceRoll + 1);
+        diceRollText.text = P1diceRoll.ToString();
     }
+
+    public void P2DiceRoller()
+    {
+        P2diceRoll = Random.Range(1, maxDiceRoll + 1);
+        diceRollText.text = P2diceRoll.ToString();
+    }
+
 
     public void PlayerTurnOrder()
     {
-        Debug.Log(diceRoll);
 
-        switch (diceRoll)
+        //Velg spiller basert på DiceRoll
+        //TODO: modifiser til å bestemme DiceRoll på 2 forskjellige spillere
+        if (P1diceRoll > P2diceRoll)
         {
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-                print("PlayerOne");
-                break;
-            case 6:
-            case 7:
-            case 8:
-            case 9:
-            case 10:
-                print("PlayerTwo");
-                break;
-            default:
-                break;
+            print("Player 1 Starts");
+        }
+        else
+        {
+            print("Player 2 Starts");
         }
     }
 
     public void TurnSystem()
     {
-        switch (turnOrder)
-        {
-            case 1:
-                PlayerTurnOrder();
-                break;
-            case 2:
-                //ActionTurn
-                break;
-            case 3:
-                //MiniGameTurn
-                break;
-            default:
-                break;
-        }
+        //Turn system etter Første spiller har blitt annerkjent/godkjent via DiceRoll
+        //    switch (turnOrder)
+        //    {
+        //        case 1:
+        //            PlayerTurnOrder();
+        //            break;
+        //        case 2:
+        //            //ActionTurn
+        //            break;
+        //        case 3:
+        //            //MiniGameTurn
+        //            break;
+        //        default:
+        //            break;
+        //    }
     }
 }
