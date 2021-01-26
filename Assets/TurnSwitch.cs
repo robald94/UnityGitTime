@@ -16,19 +16,11 @@ public class TurnSwitch : MonoBehaviour
     public List<Button> markers;
     void Start()
     {
-        //m1CurrentPosition = markers[0].GetComponent<RectTransform>().position;
-        //m2CurrentPosition = markers[1].GetComponent<RectTransform>().position;
-
-        //markerCurrentPosition[0] = markers[0].GetComponent<RectTransform>().position;
-        //markerCurrentPosition[1] = markers[1].GetComponent<RectTransform>().position;
-        //markerCurrentPosition[2] = markers[2].GetComponent<RectTransform>().position;
 
         foreach (Button i in markers)
         {
             markerCurrentPosition.Add(i.GetComponent<RectTransform>().position);
         }
-
-
         Debug.Log(swapped);
     }
     void Update()
