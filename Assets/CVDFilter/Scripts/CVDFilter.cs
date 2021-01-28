@@ -43,4 +43,41 @@ public class CVDFilter : MonoBehaviour {
 	void ChangeProfile () {
 		postProcessVolume.profile = profiles[(int)currentVisionType];
 	}
+
+	public void OnPressedAchromatomaly()
+	{
+		visionType = ColorType.Achromatomaly;
+	}
+	public void OnPressedAchromatopsia()
+	{
+		visionType = ColorType.Achromatopsia;
+	}
+	public void OnPressedTritanomaly()
+	{
+		visionType = ColorType.Tritanomaly;
+	}
+	public void OnPressedTritanopia()
+	{
+		visionType = ColorType.Tritanopia;
+	}
+	public void OnPressedDeuteranomaly()
+	{
+		visionType = ColorType.Deuteranomaly;
+	}
+	public void OnPressedDeuteranopia()
+	{
+		visionType = ColorType.Deuteranopia;
+	}
+	public void OnPressedProtanomaly()
+	{
+		visionType = ColorType.Protanomaly;
+	}
+	public void OnPressedProtanopia()
+	{
+		visionType = ColorType.Protanopia;
+	}
+	public void OnPressedNormal()
+	{
+		visionType = ColorType.Normal;
+	}
 }
